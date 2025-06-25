@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Interview Practice</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px #ccc;
+            max-width: 600px;
+            margin: auto;
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007acc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>DevOps Interview Practice</h2>
+        <p><strong>Question:</strong> {{ question }}</p>
+        <form method="post" action="/submit">
+            <input type="hidden" name="question" value="{{ question }}">
+            <label for="answer">Your Answer:</label><br>
+            <textarea name="answer" required></textarea><br><br>
+            <button type="submit">Submit & Next</button>
+        </form>
+    </div>
+</body>
+</html>
