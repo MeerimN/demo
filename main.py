@@ -32,7 +32,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 sessions = {}
 
 @app.get("/", response_class=HTMLResponse)
@@ -71,7 +70,7 @@ async def submit_answer(
         session["index"] += 1
 
     if session["index"] >= MAX_QUESTIONS:
-        return RedirectResponse(f"/done/{session_id}")
+        return RedirectResponse(f"/done/{session_id}", status_code=303)
     else:
         return RedirectResponse(f"/question/{session_id}", status_code=303)
 
