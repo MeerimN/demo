@@ -22,7 +22,8 @@
 <form method="post" action="/submit">
     <input type="hidden" name="session_id" value="{{ session_id }}">
     <input type="hidden" name="question" value="{{ question }}">
-    <label>Your Answer:</label><br>
+    <label>Your Answer: 
+        Hint: use STAR method, you have 3 minutes to answer the question</label><br>
     <textarea name="answer" required></textarea><br><br>
     <button type="submit">Submit</button>
 </form>
