@@ -19,13 +19,13 @@
     <div class="box">
         <h2>Question {{ number }} of {{ total }}</h2>
         <p><strong>{{ question }}</strong></p>
-        <form method="post" action="/submit">
-            <input type="hidden" name="session_id" value="{{ session_id }}">
-            <input type="hidden" name="question" value="{{ question }}">
-            <label>Your Answer:</label><br>
-            <textarea name="answer" required></textarea><br><br>
-            <button type="submit">Submit</button>
-        </form>
+<form method="post" action="/submit">
+    <input type="hidden" name="session_id" value="{{ session_id }}">
+    <input type="hidden" name="question" value="{{ question }}">
+    <label>Your Answer:</label><br>
+    <textarea name="answer" required></textarea><br><br>
+    <button type="submit">Submit</button>
+</form>
     </div>
 </body>
 </html>
