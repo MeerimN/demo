@@ -1,32 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DevOps Interview Practice</title>
+    <title>Interview Practice</title>
     <style>
-        body { font-family: Arial; background-color: #f8f8f8; padding: 40px; }
-        .box {
-            background: white; padding: 20px; border-radius: 12px;
-            max-width: 600px; margin: auto; box-shadow: 0 0 10px #ccc;
+        body {
+            font-family: Arial;
+            background-color: #f0f0f0;
+            padding: 40px;
         }
-        textarea { width: 100%; height: 100px; }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 650px;
+            margin: auto;
+            box-shadow: 0 0 10px #ccc;
+            text-align: center;
+        }
+        .timer {
+            font-size: 24px;
+            color: #007acc;
+            margin: 20px 0;
+        }
         button {
-            padding: 10px 20px; background: #007acc; color: white;
-            border: none; border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #007acc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        .hint {
+            background: #eef7ff;
+            padding: 15px;
+            border-left: 5px solid #007acc;
+            margin-top: 30px;
+            text-align: left;
+            border-radius: 8px;
         }
     </style>
+    <script>
+        let seconds = 180;
+        let countdown;
+
+        function startCountdown() {
+            const timerDisplay = document.getElementById("timer");
+            const form = document.getElementById("nextForm");
+
+            countdown = setInterval(() => {
+                const min = Math.floor(seconds / 60);
+                const sec = seconds % 60;
+                timerDisplay.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+                seconds--;
+
+                if (seconds < 0) {
+                    clearInterval(countdown);
+                    form.submit(); // auto-submit after 3 mins
+                }
+            }, 1000);
+        }
+
+        function skipNow() {
+            clearInterval(countdown);
+            document.getElementById("nextForm").submit();
+        }
+
+        window.onload = startCountdown;
+    </script>
 </head>
 <body>
     <div class="box">
         <h2>Question {{ number }} of {{ total }}</h2>
         <p><strong>{{ question }}</strong></p>
-<form method="post" action="/submit">
-    <input type="hidden" name="session_id" value="{{ session_id }}">
-    <input type="hidden" name="question" value="{{ question }}">
-    <label>Your Answer: 
-        Hint: use STAR method, you have 3 minutes to answer the question</label><br>
-    <textarea name="answer" required></textarea><br><br>
-    <button type="submit">Submit</button>
-</form>
+        <p class="timer">Time left: <span id="timer">3:00</span></p>
+
+        <form method="post" action="/submit" id="nextForm">
+            <input type="hidden" name="session_id" value="{{ session_id }}">
+            <input type="hidden" name="question" value="{{ question }}">
+            <input type="hidden" name="answer" value="Oral response given">
+            <button type="button" onclick="skipNow()">⏭ Skip to Next Question</button>
+        </form>
+
+        <div class="hint">
+            <h4>💡 Interview Tip: Use the STAR Method</h4>
+            <ul>
+                <li><strong>S</strong>ituation – Describe the context</li>
+                <li><strong>T</strong>ask – What was your responsibility?</li>
+                <li><strong>A</strong>ction – What did you do?</li>
+                <li><strong>R</strong>esult – What was the outcome?</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
