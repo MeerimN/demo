@@ -12,15 +12,15 @@ MAX_QUESTIONS = 5
 
 
 all_questions = [
-    "Tell me about a time you handled a production incident.",
+    "Tell me about one of your favorite projects that you have worked on.",
     "Describe a situation where you had to work with a difficult team member.",
     "How do you prioritize tasks when everything seems urgent?",
     "Tell me about a time you automated a manual process.",
-    "Describe a failure you experienced in a DevOps project. How did you handle it?",
-    "Have you ever disagreed with a manager or architect about infrastructure decisions?",
-    "How do you ensure clear communication in a remote DevOps team?",
+    "Describe a failure you experienced in a project. How did you handle it?",
+    "What has been the most challenging problem you have faced and how did you solve it?",
+    "Describe a time when your communication skills helped you successfully accomplish a project or task.",
     "Tell me about a stressful situation and how you handled it.",
-    "Describe a time when you improved CI/CD pipelines.",
+    "Have you ever faced a difficult decision at work? How did you handle it?.",
     "How do you handle mistakes in a live production environment?"
 ]
 
